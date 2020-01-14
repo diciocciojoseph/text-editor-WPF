@@ -1,0 +1,84 @@
+﻿<Window x:Class="TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextEditor"
+        mc:Ignorable="d"
+        Title="MyTextEditor" Height="450" Width="800">
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File" FontSize="14">
+                <MenuItem Header="New" x:Name="newMenuItem" Click="newMenuItem_Click"/>
+                <MenuItem Header="Open..." x:Name="openMenuItem" Click="openMenuItem_Click"/>
+                <MenuItem Header="Save..." x:Name="saveMenuItem" Click="saveMenuItem_Click"/>
+                <Separator/>
+                <MenuItem Header="Exit"
+                          x:Name="exitMenuItem"
+                          Click="exitMenuItem_Click"/>
+            </MenuItem>
+
+            <Separator/>
+
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+
+                    <ToggleButton x:Name="speechBtn" Click="speechBtn_Click">
+                        <TextBlock Text="Speech" FontSize="14" FontWeight="SemiBold"/>
+                    </ToggleButton>
+
+                    <Separator/>
+
+                    <ToggleButton x:Name="boldBtn" Click="boldBtn_Click">
+                        <TextBlock Text="B" FontSize="16" FontWeight="SemiBold"/>
+                    </ToggleButton>
+
+                    <Separator/>
+
+                    <ToggleButton x:Name="italBtn" Click="italBtn_Click">
+                        <TextBlock Text="I" FontSize="16" FontWeight="SemiBold" FontStyle="Italic"/>
+                    </ToggleButton>
+
+                    <Separator/>
+
+                    <ToggleButton x:Name="underBtn" Click="underBtn_Click">
+                        <TextBlock Text="U" FontSize="16" FontWeight="SemiBold" TextDecorations="underline"/>
+                    </ToggleButton>
+
+                    <Separator/>
+
+                    <ComboBox x:Name="familyBox"
+                              Width="100"
+                              SelectionChanged="familyBox_SelectionChanged"/>
+
+                    <Separator/>
+
+                    <ComboBox x:Name="sizeBox"
+                              Width="50"
+                              IsEditable="True"
+                              TextBoxBase.TextChanged="sizeBox_TextChanged"/>
+
+
+                </ToolBar>
+            </ToolBarTray>
+        </Menu>
+
+        <StatusBar x:Name="statusBar"
+                   DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="statusTextBlock"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid>
+            <RichTextBox
+                x:Name="contentBox"
+                TextChanged="contentBox_TextChanged"
+                SelectionChanged="contentBox_SelectionChanged"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+            />
+        </Grid>
+        
+    </DockPanel>
+</Window>
