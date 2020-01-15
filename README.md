@@ -2,7 +2,7 @@
 My WPF text editor clone with speech recognition
 
 ### How to Run
-If you have Visual Studio 2019+ you should be able to run the solution locally, currently there are no active artifacts for the project
+If you have Visual Studio 2019+ you should be able to run the solution locally, currently there are no active artifacts for the project.
 Here are some samples images of the program.
 
 ### General Functionality
